@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ $# -ne 2 ] ; then
+  echo "Usage: ssh-add-pass keyfile password"
+  exit 1
+fi
+
+#eval $(ssh-agent)
+#killall ssh-agent
+#export SSH_AUTH_SOCK=~/.ssh/ssh-agent.$HOSTNAME.sock
+#ssh-add -l 2>/dev/null >/dev/null
+#if [ $? -ge 2 ]; then
+  #ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
+#fi
+
+pass=$(echo $2)
+
+expect << EOF
+  spawn ssh-add -s $1
+  expect "Enter passphrase for PKCS#11"
+  send "$pass\r"
+  expect eof
+EOF
