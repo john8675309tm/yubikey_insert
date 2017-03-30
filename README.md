@@ -16,6 +16,9 @@ edit start.sh to reflect your home directory.
 You can then execute ./start.sh and it will fire up, you can close the command window and insert/remove your yubi key at will.
 
 
+
+
+
 Check out this tutorial: 
 https://itarch.stanford.edu/archives/2016/general/yubikey-piv-for-ssh-on-macs
 
